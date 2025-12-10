@@ -125,11 +125,6 @@ window.toggleSubView = (elementId) => {
         target.classList.remove('hidden');
         if (elementId === 'embedded-completed') renderCompletedOrders();
         if (elementId === 'embedded-earnings') renderEarnings();
-
-        // Scroll to it
-        setTimeout(() => {
-            target.scrollIntoView({ behavior: 'smooth' });
-        }, 100);
     }
 }
 
