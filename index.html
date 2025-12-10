@@ -1,239 +1,381 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bluering Utility Software | 4H4D Technologies</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: #0d1117; /* Dark background matching GitHub dark theme */
-            color: #c9d1d9; /* Light text */
-            scroll-behavior: smooth;
-        }
-        .text-gradient {
-            background-image: linear-gradient(to right, #7928CA, #FF0080);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-        .cta-button {
-            transition: transform 0.2s, box-shadow 0.2s;
-        }
-        .cta-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(162, 28, 117, 0.4); /* Shadow color based on gradient */
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zillow Rental Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body class="antialiased">
 
-    <header class="sticky top-0 z-50 bg-[#0d1117]/95 backdrop-blur-sm border-b border-[#21262d]">
-        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-between items-center py-4">
-            <a href="#" class="flex items-center space-x-2">
-                <img src="https://placehold.co/40x40/0d1117/FFFFFF?text=BR" onerror="this.onerror=null;this.src='uploaded:Logo bluering.png-531e7418-152d-4925-8a9f-7ea5d4f3cffd';" alt="Bluering Logo" class="h-8 w-8 rounded-full ring-2 ring-[#7928CA]">
-                <span class="text-xl font-extrabold text-white">Bluering</span>
-                <span class="text-xs text-gray-500 hidden sm:inline">by 4H4D Tech</span>
-            </a>
-            
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#features" class="hover:text-pink-500 transition duration-150">Features</a>
-                <a href="#requirements" class="hover:text-pink-500 transition duration-150">Requirements</a>
-                <a href="#showcase" class="hover:text-pink-500 transition duration-150">Showcase</a>
-            </div>
+<body>
 
-            <a href="https://ahadtabc.github.io/Bluering/dist/Blueringo.exe" class="cta-button inline-flex items-center justify-center px-4 py-2 border border-transparent text-sm font-medium rounded-lg text-white bg-gradient-to-r from-[#7928CA] to-[#FF0080] shadow-lg shadow-pink-500/20">
-                Download Now
-            </a>
-        </nav>
-    </header>
-
-    <main>
-        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-28 text-center">
-            <h1 class="text-5xl sm:text-7xl font-extrabold tracking-tight mb-4">
-                <span class="block text-white">Optimize Your System.</span>
-                <span class="block text-gradient">Simplify Your Digital Life.</span>
-            </h1>
-            <p class="mt-3 max-w-2xl mx-auto text-xl text-gray-400">
-                Bluering is the essential utility software by 4H4D Technologies for safe registry operations, real-time logging, and advanced network diagnostics.
-            </p>
-            <div class="mt-10 flex justify-center space-x-4">
-                <a href="https://ahadtabc.github.io/Bluering/dist/Blueringo.exe" class="cta-button inline-flex items-center justify-center px-8 py-4 border border-transparent text-base font-medium rounded-xl text-white bg-gradient-to-r from-[#7928CA] to-[#FF0080] shadow-2xl shadow-pink-500/40 transform hover:scale-[1.02] transition duration-300">
-                    Download Bluering (Standard)
-                </a>
-                <a href="https://ahadtabc.github.io/Bluering/dist/BlueringoL.exe" class="cta-button inline-flex items-center justify-center px-8 py-4 border border-pink-500 text-base font-medium rounded-xl text-pink-500 bg-transparent hover:bg-pink-500/10 transition duration-300">
-                    Download Bluering (Lite)
-                </a>
-            </div>
-            <div class="mt-16 w-full max-w-4xl mx-auto p-4 bg-[#161b22] border border-[#21262d] rounded-2xl shadow-2xl shadow-blue-500/10">
-                <img src="https://placehold.co/1000x500/161b22/8b949e?text=Bluering+Main+UI" onerror="this.onerror=null;this.src='uploaded:Screenshot Bluering (1).png-de090727-448c-40e2-92e9-6af0d85f0299';" alt="Bluering Software Main User Interface Screenshot" class="rounded-xl border border-[#30363d]">
-            </div>
-        </section>
-
-        <section id="features" class="py-24 bg-[#0d1117] border-t border-[#21262d]">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-center text-3xl sm:text-4xl font-extrabold text-white mb-16">
-                    Powerful Utilities at Your Fingertips
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-                    
-                    <div class="p-6 bg-[#161b22] rounded-xl border border-[#21262d] shadow-lg hover:shadow-blue-500/10 transition duration-300">
-                        <div class="text-gradient mb-4">
-                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Safe Registry Operations</h3>
-                        <p class="text-gray-400 text-sm">Perform safe **Registry Backup & Restore** operations, along with simulation functions to test changes before application.</p>
-                    </div>
-
-                    <div class="p-6 bg-[#161b22] rounded-xl border border-[#21262d] shadow-lg hover:shadow-blue-500/10 transition duration-300">
-                        <div class="text-gradient mb-4">
-                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Real-Time System Log</h3>
-                        <p class="text-gray-400 text-sm">Monitor all application activities, operations, and quickly diagnose errors via a dedicated, read-only log console.</p>
-                    </div>
-
-                    <div class="p-6 bg-[#161b22] rounded-xl border border-[#21262d] shadow-lg hover:shadow-blue-500/10 transition duration-300">
-                        <div class="text-gradient mb-4">
-                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Network Speed Test</h3>
-                        <p class="text-gray-400 text-sm">Perform accurate, non-blocking internet speed tests (Download, Upload, Ping) and view detailed adapter information (using psutil).</p>
-                    </div>
-                    
-                    <div class="p-6 bg-[#161b22] rounded-xl border border-[#21262d] shadow-lg hover:shadow-blue-500/10 transition duration-300">
-                        <div class="text-gradient mb-4">
-                            <svg class="w-10 h-10" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0011.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                        </div>
-                        <h3 class="text-xl font-bold text-white mb-3">Dark & Light Mode</h3>
-                        <p class="text-gray-400 text-sm">The modern customtkinter interface allows you to switch appearance modes instantly to match your workspace environment.</p>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <section id="requirements" class="py-24 bg-[#161b22] border-t border-b border-[#21262d]">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-center text-3xl sm:text-4xl font-extrabold text-white mb-10">
-                    System Requirements & Setup
-                </h2>
-                <p class="text-lg text-gray-400 text-center mb-12">
-                    Bluering is built on a robust Python framework. Please ensure the following prerequisites are met for a smooth installation and operation.
-                </p>
-
-                <div class="space-y-8">
-                    <div class="p-6 bg-[#0d1117] rounded-xl border border-[#30363d] shadow-lg">
-                        <h3 class="text-2xl font-bold text-gradient mb-2">1. Python Environment</h3>
-                        <p class="text-gray-300 mb-3">Bluering requires **Python 3.x** (latest stable version recommended).</p>
-                        <ul class="list-disc list-inside text-gray-400 space-y-1 ml-4">
-                            <li>Download: <a href="https://www.python.org/downloads/" target="_blank" class="text-blue-400 hover:text-blue-300 underline">https://www.python.org/downloads/</a></li>
-                            <li class="font-bold text-red-400">IMPORTANT: During installation, you MUST check the **"Add Python to PATH"** box.</li>
-                        </ul>
-                    </div>
-
-                    <div class="p-6 bg-[#0d1117] rounded-xl border border-[#30363d] shadow-lg">
-                        <h3 class="text-2xl font-bold text-gradient mb-4">2. Required Python Packages</h3>
-                        <p class="text-gray-300 mb-4">These modules must be installed via **pip** using an Administrative Command Prompt:</p>
-                        
-                        <div class="bg-[#21262d] p-4 rounded-lg overflow-x-auto text-sm">
-                            <code class="text-green-400 block whitespace-pre">
-                                pip install customtkinter psutil wmi speedtest-cli pystray pillow pywin32
-                            </code>
-                        </div>
-                        <p class="text-sm text-gray-500 mt-3">
-                            <span class="text-yellow-500 font-semibold">Note:</span> If running from a provided executable, these steps may be optional, but are necessary for running the source code (`Main_Code REG SIMU.py`).
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="showcase" class="py-24">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <h2 class="text-center text-3xl sm:text-4xl font-extrabold text-white mb-16">
-                    See Bluering in Action
-                </h2>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                    <div class="p-4 bg-[#161b22] rounded-xl border border-[#21262d] shadow-xl">
-                        <img src="https://placehold.co/800x450/161b22/8b949e?text=Screenshot+1" onerror="this.onerror=null;this.src='uploaded:Screenshot Bluering (1).png-de090727-448c-40e2-92e9-6af0d85f0299';" alt="Bluering Main Screen" class="w-full h-auto rounded-lg border border-[#30363d]">
-                        <p class="mt-3 text-center text-gray-400 text-sm">Main Utility Dashboard View</p>
-                    </div>
-                    <div class="p-4 bg-[#161b22] rounded-xl border border-[#21262d] shadow-xl">
-                        <img src="https://placehold.co/800x450/161b22/8b949e?text=Screenshot+2" onerror="this.onerror=null;this.src='uploaded:Screenshot Bluering (2).png-260e0e6a-f2ec-40cf-ab11-8ef727865803';" alt="Bluering Network Diagnostics" class="w-full h-auto rounded-lg border border-[#30363d]">
-                        <p class="mt-3 text-center text-gray-400 text-sm">Network Diagnostics and Speed Test</p>
-                    </div>
-                    <div class="p-4 bg-[#161b22] rounded-xl border border-[#21262d] shadow-xl">
-                        <img src="https://placehold.co/800x450/161b22/8b949e?text=Screenshot+3" onerror="this.onerror=null;this.src='uploaded:Screenshot Bluering (3).png-2669d2ae-5fb1-43b4-b942-01616af33fa4';" alt="Bluering Settings Panel" class="w-full h-auto rounded-lg border border-[#30363d]">
-                        <p class="mt-3 text-center text-gray-400 text-sm">Customization and Configuration Settings</p>
-                    </div>
-                    <div class="p-4 bg-[#161b22] rounded-xl border border-[#21262d] shadow-xl">
-                        <img src="https://placehold.co/800x450/161b22/8b949e?text=Screenshot+4" onerror="this.onerror=null;this.src='uploaded:Screenshot Bluering (4).png-34c0e7a9-5898-403c-89be-80d7598c30be';" alt="Bluering Log View" class="w-full h-auto rounded-lg border border-[#30363d]">
-                        <p class="mt-3 text-center text-gray-400 text-sm">Real-Time Activity and Error Logging</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="download" class="py-20 bg-[#0d1117] border-t border-[#21262d]">
-            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <h2 class="text-4xl sm:text-5xl font-extrabold text-white mb-4">
-                    Get Bluering Today
-                </h2>
-                <p class="text-xl text-gray-400 mb-8">
-                    Start simplifying your system management and gain deeper diagnostic insights now.
-                </p>
-                <a href="https://ahadtabc.github.io/Bluering/dist/Blueringo.exe" class="cta-button inline-flex items-center justify-center px-10 py-5 border border-transparent text-lg font-bold rounded-xl text-white bg-gradient-to-r from-[#7928CA] to-[#FF0080] shadow-2xl shadow-pink-500/40 transform hover:scale-[1.05] transition duration-300">
-                    DOWNLOAD BLUERING UTILITY
-                </a>
-                <p class="mt-4 text-gray-500 text-sm">Version X.X | Windows OS Required</p>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-[#161b22] border-t border-[#21262d]">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-sm">
-                
-                <div>
-                    <h4 class="font-bold text-white mb-3">4H4D Technologies</h4>
-                    <p class="text-gray-400">Developing innovative utility software for system optimization and maintenance.</p>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-white mb-3">Product</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#features" class="text-gray-400 hover:text-pink-500 transition duration-150">Features</a></li>
-                        <li><a href="#requirements" class="text-gray-400 hover:text-pink-500 transition duration-150">Requirements</a></li>
-                        <li><a href="#download" class="text-gray-400 hover:text-pink-500 transition duration-150">Download</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-white mb-3">Support</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-150">Contact Us (Placeholder)</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-150">FAQ (Placeholder)</a></li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h4 class="font-bold text-white mb-3">Legal</h4>
-                    <ul class="space-y-2">
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-150">Privacy Policy (Placeholder)</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-pink-500 transition duration-150">Terms of Service (Placeholder)</a></li>
-                    </ul>
-                </div>
-
-            </div>
-
-            <div class="mt-10 pt-6 border-t border-[#30363d] text-center text-xs text-gray-500">
-                &copy; 2024 4H4D Technologies. All Rights Reserved. Bluering is a trademark of 4H4D Technologies.
-            </div>
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="logo-container">
+            <img src="zillow_logo_new.png" alt="Zillow Logo" class="splash-logo">
         </div>
-    </footer>
+    </div>
 
+    <!-- Main App -->
+    <div id="app" class="hidden">
+
+        <!-- Top App Bar -->
+        <header class="app-bar">
+            <button id="settings-btn" class="icon-btn" aria-label="Settings">
+                <span class="mode-icon">⚙️</span>
+            </button>
+            <div class="brand">
+                <img src="zillow_logo_new.png" alt="Logo" class="app-logo">
+                <h1>Zillow</h1>
+            </div>
+            <div class="header-actions">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                    <!-- Moon Icon (for Light Mode) -->
+                    <span class="moon-icon mode-icon">🌙</span>
+                    <!-- Sun Icon (for Dark Mode) -->
+                    <span class="sun-icon mode-icon hidden">🔆</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="bottom-nav">
+            <button class="nav-item active" data-target="dashboard">
+                <span class="icon">🛒</span>
+                <span class="label">Orders</span>
+            </button>
+            <button class="nav-item" data-target="add-order">
+                <span class="icon">➕</span>
+                <span class="label">New</span>
+            </button>
+            <button class="nav-item" data-target="calendar">
+                <span class="icon">📅</span>
+                <span class="label">Calendar</span>
+            </button>
+            <button class="nav-item" data-target="settings">
+                <span class="icon">☰</span>
+                <span class="label">Options</span>
+            </button>
+        </nav>
+
+        <!-- Views -->
+        <main class="content-area">
+
+            <!-- Dashboard View -->
+            <section id="dashboard" class="view active">
+                <div class="view-header">
+                    <h2>My Orders</h2>
+                    <div class="filter-badge"></div>
+                </div>
+
+                <div id="orders-list" class="orders-list">
+                    <!-- Orders will be injected here -->
+                    <div class="empty-state">
+                        <p>No active rentals.</p>
+                        <button class="btn-primary" onclick="navTo('add-order')">Add First Order</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add Order View -->
+            <section id="add-order" class="view">
+                <div class="view-header">
+                    <h2 id="form-title">New Rental</h2>
+                </div>
+                <form id="order-form">
+                    <input type="hidden" id="edit-order-id"> <!-- Hidden field to store ID being edited -->
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <select id="product-select" required>
+                            <option value="" disabled selected>Select Product</option>
+                            <!-- Populated from settings -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" id="user-name" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="location" placeholder="City, Area" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proof 1</label>
+                        <div class="file-upload-wrapper">
+                            <input type="text" id="proof-name" placeholder="Doc Name (e.g. Aadhaar)" required>
+                            <label for="proof-file" class="file-btn">File</label>
+                            <input type="file" id="proof-file" accept="image/*" class="hidden">
+                            <span id="file-name-display"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proof 2</label>
+                        <div class="file-upload-wrapper">
+                            <input type="text" id="alt-proof-name" placeholder="Doc Name (e.g. DL, SSLC)">
+                            <label for="alt-proof-file" class="file-btn">File</label>
+                            <input type="file" id="alt-proof-file" accept="image/*" class="hidden">
+                            <span id="alt-file-name-display"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Phone 1</label>
+                            <input type="tel" id="phone-1" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone 2</label>
+                            <input type="tel" id="phone-2" placeholder="Alternate Number">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone 3</label>
+                            <input type="tel" id="phone-3" placeholder="Optional Number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Start Date & Time</label>
+                        <input type="datetime-local" id="start-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>End Date & Time</label>
+                        <input type="datetime-local" id="end-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Extra Details</label>
+                        <input type="text" id="extra-details" placeholder="Vehicle Number, Notes...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="manual-amount">Total Amount (Optional Override) ₹</label>
+                        <input type="number" id="manual-amount" placeholder="Leave empty for auto-calculation">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn-primary full-width">Create Order</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Calendar View -->
+            <section id="calendar" class="view">
+                <div class="view-header">
+                    <h2>Schedule</h2>
+                </div>
+                <!-- Enhanced Calendar -->
+                <div class="calendar-container">
+                    <div class="calendar-header-controls">
+                        <button id="cal-prev" class="icon-btn">&lt;</button>
+                        <h3 id="cal-month-year">Month Year</h3>
+                        <button id="cal-next" class="icon-btn">&gt;</button>
+                    </div>
+
+                    <div class="calendar-wrapper">
+                        <div id="calendar-grid" class="calendar-grid"></div>
+                    </div>
+
+                    <div id="calendar-details" class="calendar-details">
+                        <h4>Select a date to view rentals</h4>
+                        <div id="cal-selected-orders" class="cal-orders-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Options View -->
+            <section id="settings" class="view">
+                <div class="view-header">
+                    <h2>Options</h2>
+                </div>
+                <div class="settings-card">
+                    <div style="margin-bottom:10px;">
+                        <h3>Product Rates (₹)</h3>
+                    </div>
+                    <div id="rates-list" style="margin-bottom: 20px;">
+                        <!-- Rates injected here -->
+                    </div>
+
+                    <h4 style="margin-bottom:10px; color:var(--text-secondary); font-weight:500;">Add New Product</h4>
+                    <form id="add-rate-form" style="margin-bottom: 30px;">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <input type="text" id="new-product-name" placeholder="Product Name" required
+                                style="margin-bottom: 10px;">
+                            <input type="number" id="new-product-rate" placeholder="Rate/12hr ₹" required>
+                        </div>
+                        <div style="display:flex; justify-content:center;">
+                            <button type="submit" class="btn-primary"
+                                style="padding: 12px 40px; background:var(--success);">Add Product</button>
+                        </div>
+                    </form>
+
+                    <!-- Sub-Page Navigation Tabs -->
+                    <div class="options-tabs"
+                        style="display: flex; gap: 10px; margin-top: 20px; border-top: 1px solid var(--border); padding-top: 20px; margin-bottom: 20px;">
+                        <button class="btn-secondary full-width" onclick="toggleSubView('embedded-completed')"
+                            style="display:flex; align-items:center; justify-content:center; gap:8px; padding:12px; font-weight:600;">
+                            <span>📜</span> History
+                        </button>
+                        <button class="btn-secondary full-width" onclick="toggleSubView('embedded-earnings')"
+                            style="display:flex; align-items:center; justify-content:center; gap:8px; padding:12px; font-weight:600;">
+                            <span>📈</span> Earnings
+                        </button>
+                    </div>
+
+                    <!-- Embedded Completed View -->
+                    <div id="embedded-completed" class="embedded-section hidden">
+                        <div class="view-header"
+                            style="margin-bottom: 10px; display:flex; justify-content:space-between; align-items:center;">
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <h3 style="font-size: 1.2rem; margin:0;">History</h3>
+                                <div class="filter-badge"></div>
+                            </div>
+                            <div class="month-filter-group" style="display:flex; align-items:center; gap:5px;">
+                                <span id="history-count-display"
+                                    style="font-size: 0.9rem; margin-right: 5px; color: var(--text-secondary); font-weight: 500;">(0)</span>
+                                <input type="month" id="history-month-picker" onchange="renderCompletedOrders()"
+                                    style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                <button id="history-clear-filter" onclick="resetHistoryFilter()" class="btn-sm"
+                                    style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                            </div>
+                        </div>
+                        <div id="completed-list" class="orders-list">
+                            <!-- Completed Orders will be injected here -->
+                            <div class="empty-state">
+                                <p>No completed rentals yet.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Embedded Earnings View -->
+                    <div id="embedded-earnings" class="embedded-section hidden">
+                        <div class="view-header" style="margin-bottom: 10px;">
+                            <h3 style="font-size: 1.2rem;">Cash Earnings</h3>
+                        </div>
+                        <div class="earnings-display">
+                            <div class="earnings-card">
+                                <div class="earnings-card-header"
+                                    style="display:flex; justify-content:space-between; align-items:center;">
+                                    <h3>Total value of completed orders</h3>
+                                    <div style="display:flex; align-items:center; gap:10px;">
+                                        <div class="month-filter-group"
+                                            style="display:flex; align-items:center; gap:5px;">
+                                            <input type="month" id="report-month-picker" onchange="renderEarnings()"
+                                                style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                            <button id="report-clear-filter" onclick="resetReportFilter()"
+                                                class="btn-sm"
+                                                style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                                        </div>
+                                        <button class="btn-sm btn-report" onclick="generatePDFReport()"
+                                            style="display:flex; align-items:center; gap:5px;">
+                                            <span>📄</span> Report
+                                        </button>
+                                    </div>
+                                </div>
+                                <div id="cash-total-amount" class="big-amount">₹0</div>
+                                <p></p>
+                            </div>
+
+                            <div class="stats-container">
+                                <div class="stats-group">
+                                    <div class="stats-header"
+                                        style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                        <h4 class="stats-header" style="margin:0; border:none; padding:0;">Monthly
+                                            Breakdown</h4>
+                                        <div class="month-filter-group"
+                                            style="display:flex; align-items:center; gap:5px;">
+                                            <input type="month" id="monthly-month-picker" onchange="renderEarnings()"
+                                                style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                            <button id="monthly-clear-filter" onclick="resetMonthlyFilter()"
+                                                class="btn-sm"
+                                                style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                                        </div>
+                                    </div>
+                                    <div id="monthly-stats" class="stats-list">
+                                        <!-- Monthly stats injected here -->
+                                    </div>
+                                </div>
+
+                                <div class="stats-group">
+                                    <div class="stats-header"
+                                        style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                        <h4 style="margin:0; border:none; padding:0;">Product Breakdown</h4>
+                                        <div class="month-filter-group"
+                                            style="display:flex; align-items:center; gap:5px;">
+                                            <input type="month" id="product-month-picker" onchange="renderEarnings()"
+                                                style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                            <button id="product-clear-filter" onclick="resetProductFilter()"
+                                                class="btn-sm"
+                                                style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                                        </div>
+                                    </div>
+                                    <div id="product-stats" class="stats-list">
+                                        <!-- Product stats injected here -->
+                                    </div>
+                                </div>
+
+                                <div class="stats-group">
+                                    <div class="stats-header"
+                                        style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                        <h4 style="margin:0; border:none; padding:0;">Product Days Breakdown</h4>
+                                        <div class="month-filter-group"
+                                            style="display:flex; align-items:center; gap:5px;">
+                                            <input type="month" id="product-days-month-picker"
+                                                onchange="renderEarnings()"
+                                                style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                            <button id="product-days-clear-filter" onclick="resetProductDaysFilter()"
+                                                class="btn-sm"
+                                                style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                                        </div>
+                                    </div>
+                                    <div id="product-days-stats" class="stats-list">
+                                        <!-- Product days stats injected here -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            </section>
+
+            <!-- Top Level Settings View -->
+            <section id="app-settings" class="view">
+                <div class="view-header">
+                    <h2>Settings</h2>
+                </div>
+                <div class="orders-list">
+                    <!-- Cloned UI Style -->
+                    <div class="order-card">
+                        <h3>Application Info</h3>
+                        <div class="order-detail">Version: 1.0.0</div>
+                        <div class="order-detail">Status: Active</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal hidden">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="modal-caption"></div>
+    </div>
+
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="script.js"></script>
 </body>
+
 </html>
