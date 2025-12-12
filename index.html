@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Zillow Rental Manager</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Splash Screen -->
+    <div id="splash-screen">
+        <div class="logo-container">
+            <img src="zillow_logo_new.png" alt="Zillow Logo" class="splash-logo">
+
+        </div>
+    </div>
+
+    <!-- Main App -->
+    <div id="app" class="hidden">
+
+        <!-- Top App Bar -->
+        <header class="app-bar">
+
+            <img src="zillow_logo_new.png" alt="Logo" class="app-logo">
+            <span class="app-name">Zillow</span>
+
+            <div class="header-actions" style="display: flex; gap: 8px; align-items: center; margin-left: auto;">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                    <!-- Moon Icon (for Light Mode) -->
+                    <span class="moon-icon mode-icon">🌙</span>
+                    <!-- Sun Icon (for Dark Mode) -->
+                    <span class="sun-icon mode-icon hidden">🔆</span>
+                </button>
+                <button id="settings-btn" class="icon-btn" aria-label="Settings">
+                    <span class="mode-icon">⚙️</span>
+                </button>
+                <button id="options-btn" class="icon-btn" aria-label="Options">
+                    <span class="mode-icon">☰</span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Navigation Tabs -->
+        <nav class="bottom-nav">
+            <button class="nav-item" data-target="calendar">
+                <span class="icon">📅</span>
+                <span class="label">Calendar</span>
+            </button>
+            <button class="nav-item" data-target="earnings">
+                <span class="icon">📈</span>
+                <span class="label">Earnings</span>
+            </button>
+            <button class="nav-item" data-target="add-order">
+                <span class="icon">➕</span>
+                <span class="label">New</span>
+            </button>
+            <button class="nav-item" data-target="expenses">
+                <span class="icon">💸</span>
+                <span class="label">Expenses</span>
+            </button>
+
+            <button class="nav-item active" data-target="dashboard">
+                <span class="icon">🛒</span>
+                <span class="label">Orders</span>
+            </button>
+        </nav>
+
+        <!-- Views -->
+        <main class="content-area">
+
+            <!-- Dashboard View -->
+            <section id="dashboard" class="view active">
+                <div class="view-header">
+                    <h2>My Orders</h2>
+                    <div class="filter-badge"></div>
+                </div>
+
+                <div id="orders-list" class="orders-list">
+                    <!-- Orders will be injected here -->
+                    <div class="empty-state">
+                        <p>No active rentals.</p>
+                        <button class="btn-primary" onclick="navTo('add-order')">Add First Order</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Add Order View -->
+            <section id="add-order" class="view">
+                <div class="view-header">
+                    <h2 id="form-title">New Rental</h2>
+                </div>
+                <form id="order-form">
+                    <input type="hidden" id="edit-order-id"> <!-- Hidden field to store ID being edited -->
+                    <div class="form-group">
+                        <label>Product Name</label>
+                        <select id="product-select" required>
+                            <option value="" disabled selected>Select Product</option>
+                            <!-- Populated from settings -->
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>User Name</label>
+                        <input type="text" id="user-name" placeholder="Your Name" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Location</label>
+                        <input type="text" id="location" placeholder="City, Area" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proof 1</label>
+                        <div class="file-upload-wrapper">
+                            <input type="text" id="proof-name" placeholder="Doc Name (e.g. Aadhaar)" required>
+                            <label for="proof-file" class="file-btn">File</label>
+                            <input type="file" id="proof-file" accept="image/*,application/pdf,.doc,.docx"
+                                class="hidden">
+                            <span id="file-name-display"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Proof 2</label>
+                        <div class="file-upload-wrapper">
+                            <input type="text" id="alt-proof-name" placeholder="Doc Name (e.g. DL, SSLC)">
+                            <label for="alt-proof-file" class="file-btn">File</label>
+                            <input type="file" id="alt-proof-file" accept="image/*,application/pdf,.doc,.docx"
+                                class="hidden">
+                            <span id="alt-file-name-display"></span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group">
+                            <label>Phone 1</label>
+                            <input type="tel" id="phone-1" placeholder="Phone Number" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone 2</label>
+                            <input type="tel" id="phone-2" placeholder="Alternate Number">
+                        </div>
+                        <div class="form-group">
+                            <label>Phone 3</label>
+                            <input type="tel" id="phone-3" placeholder="Optional Number">
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Start Date & Time</label>
+                        <input type="datetime-local" id="start-date" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>End Date & Time</label>
+                        <input type="datetime-local" id="end-date">
+                    </div>
+
+                    <div class="form-group">
+                        <label>Extra Details</label>
+                        <input type="text" id="extra-details" placeholder="Vehicle Number, Notes...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="manual-amount" id="manual-amount-label">Total Amount (Optional Override)</label>
+                        <input type="number" id="manual-amount" placeholder="Leave empty for auto-calculation">
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" id="submit-btn" class="btn-primary full-width">Create Order</button>
+                    </div>
+                </form>
+            </section>
+
+            <!-- Calendar View -->
+            <section id="calendar" class="view">
+                <div class="view-header">
+                    <h2>Schedule</h2>
+                </div>
+                <!-- Enhanced Calendar -->
+                <div class="calendar-container">
+                    <div class="calendar-header-controls">
+                        <button id="cal-prev" class="icon-btn">&lt;</button>
+                        <h3 id="cal-month-year">Month Year</h3>
+                        <button id="cal-next" class="icon-btn">&gt;</button>
+                    </div>
+
+                    <div class="calendar-wrapper">
+                        <div id="calendar-grid" class="calendar-grid"></div>
+                    </div>
+
+                    <div id="calendar-details" class="calendar-details">
+                        <h4>Select a date to view rentals</h4>
+                        <div id="cal-selected-orders" class="cal-orders-list"></div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Options View -->
+            <section id="settings" class="view">
+                <div class="view-header">
+                    <h2>Options</h2>
+                </div>
+                <div class="settings-card">
+                    <div style="margin-bottom:10px;">
+                        <h3>History</h3>
+                    </div>
+
+                    <!-- History Summary Card -->
+                    <div id="history-summary-card"
+                        style="margin-bottom: 20px; padding: 15px; background: var(--bg-secondary); border-radius: 12px; cursor: pointer; display: flex; justify-content: space-between; align-items: center; border: 1px solid var(--border);">
+                        <div>
+                            <h4 style="margin:0; font-size: 1rem;">View Completed Orders</h4>
+                            <p id="history-summary-text"
+                                style="margin:5px 0 0 0; color: var(--text-secondary); font-size: 0.85rem;">0 items
+                                recorded</p>
+                        </div>
+                        <div style="font-size: 1.2rem; transform: rotate(-90deg);">▼</div>
+                    </div>
+
+
+
+                    <div class="settings-card" style="margin-top: 20px;">
+                        <div style="margin-bottom:10px;">
+                            <h3 id="product-rates-title">Product Rates</h3>
+                        </div>
+                        <div id="rates-list" style="margin-bottom: 20px;">
+                            <!-- Rates injected here -->
+                        </div>
+
+                        <h4 style="margin-bottom:10px; color:var(--text-secondary); font-weight:500;">Add New Product
+                        </h4>
+                        <form id="add-rate-form" style="margin-bottom: 30px;">
+                            <div class="form-group" style="margin-bottom: 20px;">
+                                <input type="text" id="new-product-name" placeholder="Product Name" required
+                                    style="margin-bottom: 10px;">
+                                <input type="number" id="new-product-rate" placeholder="Rate/12hr" required>
+                            </div>
+                            <div style="display:flex; justify-content:center;">
+                                <button type="submit" class="btn-primary"
+                                    style="padding: 12px 40px; background:var(--success);">Add Product</button>
+                            </div>
+                        </form>
+                    </div>
+            </section>
+
+
+            <!-- Top Level Settings View -->
+            <section id="app-settings" class="view">
+                <div class="view-header">
+                    <h2>Settings</h2>
+                </div>
+                <div style="padding: 0 16px 100px 16px;">
+
+
+
+                    <!-- Account Section -->
+                    <div class="settings-card-enhanced">
+                        <h3 style="margin-bottom: 16px; font-size: 1.1rem;">Account</h3>
+                        <button id="google-signin-btn" class="btn-google">
+                            <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" alt="Google">
+                            <span>Sign in with Google</span>
+                        </button>
+                    </div>
+
+                    <!-- Regional Settings -->
+                    <div class="settings-card-enhanced">
+                        <h3 style="margin-bottom: 16px; font-size: 1.1rem;">Region</h3>
+                        <div class="form-group">
+                            <label>Currency 🏛️</label>
+                            <select id="currency-select" class="currency-dropdown">
+                                <!-- Populated by JS -->
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Data Management -->
+                    <div class="settings-card-enhanced">
+                        <h3 style="margin-bottom: 16px; font-size: 1.1rem;">Backup & Restore</h3>
+                        <p style="font-size: 0.85rem; color: var(--text-secondary); margin-bottom: 12px;">
+                            Save your data to a file or restore from a previous backup.
+                        </p>
+                        <div class="backup-restore-actions">
+                            <button class="btn-action-block" onclick="generateBackup()">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                                        width="24px" fill="var(--primary)">
+                                        <path d="M0 0h24v24H0V0z" fill="none" />
+                                        <path
+                                            d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM17 13l-5 5-5-5h3V9h4v4h3z" />
+                                    </svg>
+                                </span>
+                                <span>Backup</span>
+                            </button>
+                            <button class="btn-action-block" onclick="triggerRestore()">
+                                <span class="icon">
+                                    <svg xmlns="http://www.w3.org/2000/svg" height="24px" viewBox="0 0 24 24"
+                                        width="24px" fill="var(--primary)">
+                                        <path d="M0 0h24v24H0V0z" fill="none" />
+                                        <path
+                                            d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z" />
+                                    </svg>
+                                </span>
+                                <span>Restore</span>
+                            </button>
+                            <input type="file" id="restore-file-input" accept=".json" style="display: none;"
+                                onchange="restoreBackup(this)">
+                        </div>
+                    </div>
+
+                    <!-- About Section -->
+                    <div class="settings-card-enhanced" onclick="navTo('about-refined')"
+                        style="cursor: pointer; text-align: center; display: flex; justify-content: center; align-items: center; padding: 16px;">
+                        <h3 style="margin: 0; font-size: 1.1rem;">About</h3>
+                    </div>
+                </div>
+            </section>
+
+            <!-- About Detailed View -->
+            <section id="about-refined" class="view">
+
+                <div style="padding: 20px;">
+                    <!-- Back Button -->
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="navTo('app-settings')"
+                            style="background: none; border: none; font-size: 2rem; font-weight: bold; color: var(--text-primary); cursor: pointer; padding: 0;">
+                            &lt;
+                        </button>
+                    </div>
+
+                    <!-- Cloned Header -->
+                    <div class="app-info-header">
+                        <img src="zillow_logo_new.png" alt="Logo" class="app-info-logo">
+                        <h3>Zillow Rental Manager</h3>
+                        <p class="app-info-version">Version 1.8.2</p>
+                        <p class="app-info-version" style="margin-top: 4px;">Developer: <a
+                                href="https://www.linkedin.com/in/abdul-ahadit" target="_blank"
+                                style="color:var(--primary);">Abdul Ahad</a></p>
+                    </div>
+                    <!-- Footer -->
+                    <div class="copyright-footer">
+                        <div class="copyright-brand"><span class="powered-text">Powered by</span>4H4D</div>
+                        <div>&copy; 2025 Zillow Rental Manager</div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Detailed Expenses View (Promoted to Main View) -->
+            <section id="expenses" class="view">
+                <div class="view-header">
+                    <h2>Expenses</h2>
+                </div>
+
+                <!-- Add Expense Form (Moved Here) -->
+                <div style="padding: 20px 20px 0 20px;">
+                    <h4 style="margin-bottom:10px; color:var(--text-secondary); font-weight:500;">Add Expense</h4>
+                    <form id="add-expense-form" style="margin-bottom: 10px;">
+                        <div class="form-group" style="margin-bottom: 20px;">
+                            <input type="text" id="expense-purpose" placeholder="Purpose" required
+                                style="margin-bottom: 10px;">
+                            <input type="number" id="expense-amount" placeholder="Amount" required>
+                        </div>
+                        <div style="display:flex; justify-content:center;">
+                            <button type="submit" class="btn-primary"
+                                style="padding: 12px 40px; background:var(--danger);">Add Expense</button>
+                        </div>
+                    </form>
+                    <hr style="border: 0; border-top: 1px solid var(--border); margin: 20px 0;">
+                </div>
+
+                <div style="padding: 0 20px;">
+                    <div class="stats-group">
+                        <div class="stats-header"
+                            style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                            <h4 class="stats-header" style="margin:0; border:none; padding:0;">Monthly Breakdown</h4>
+                            <div class="month-filter-group" style="display:flex; align-items:center; gap:5px;">
+                                <input type="month" id="expenses-month-picker" onchange="renderExpenses()"
+                                    style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                <button id="expenses-clear-filter" onclick="resetExpensesFilter()" class="btn-sm"
+                                    style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                            </div>
+                        </div>
+                        <div id="expenses-monthly-stats" class="stats-list">
+                            <!-- Monthly stats injected here -->
+                        </div>
+                    </div>
+                </div>
+
+                <div id="expenses-full-list" style="padding: 20px; padding-bottom: 100px;">
+                    <!-- Full list injected here -->
+                </div>
+            </section>
+
+
+            <!-- History View (Demoted to Sub-View) -->
+            <section id="history" class="view">
+                <div class="view-header"
+                    style="margin-bottom: 10px; display:flex; justify-content:space-between; align-items:center;">
+                    <div style="display:flex; align-items:center; gap:10px;">
+                        <button onclick="navTo('settings')"
+                            style="background:none; border:none; font-size:1.5rem; cursor:pointer;">←</button>
+                        <h2 style="font-size: 1.5rem; margin:0;">History</h2>
+                        <div class="filter-badge"></div>
+                    </div>
+                    <div class="month-filter-group" style="display:flex; align-items:center; gap:5px;">
+                        <span id="history-count-display"
+                            style="font-size: 0.9rem; margin-right: 5px; color: var(--text-secondary); font-weight: 500;">(0)</span>
+                        <input type="month" id="history-month-picker" onchange="renderCompletedOrders()"
+                            style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                        <button id="history-clear-filter" onclick="resetHistoryFilter()" class="btn-sm"
+                            style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                    </div>
+                </div>
+                <div id="completed-list" class="orders-list">
+                    <!-- Completed Orders will be injected here -->
+                    <div class="empty-state">
+                        <p>No completed rentals yet.</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Earnings View -->
+            <section id="earnings" class="view">
+                <div class="view-header" style="margin-bottom: 10px;">
+                    <h2 style="font-size: 1.5rem;">Cash Earnings</h2>
+                </div>
+                <div class="earnings-display">
+                    <div class="earnings-card">
+                        <div class="earnings-card-header"
+                            style="display:flex; justify-content:space-between; align-items:center;">
+                            <h3>Total value of completed orders</h3>
+                            <div style="display:flex; align-items:center; gap:10px;">
+                                <div class="month-filter-group" style="display:flex; align-items:center; gap:5px;">
+                                    <input type="month" id="report-month-picker" onchange="renderEarnings()"
+                                        style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                    <button id="report-clear-filter" onclick="resetReportFilter()" class="btn-sm"
+                                        style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                                </div>
+                                <button class="btn-sm btn-report" onclick="generatePDFReport()"
+                                    style="display:flex; align-items:center; gap:5px;">
+                                    <span>📄</span> Report
+                                </button>
+                            </div>
+                        </div>
+                        <div id="cash-total-amount" class="big-amount">0</div>
+                        <p></p>
+                    </div>
+
+                    <div class="stats-container">
+                        <div class="stats-group">
+                            <div class="stats-header"
+                                style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                <h4 class="stats-header" style="margin:0; border:none; padding:0;">Monthly
+                                    Breakdown</h4>
+                                <div class="month-filter-group" style="display:flex; align-items:center; gap:5px;">
+                                    <input type="month" id="monthly-month-picker" onchange="renderEarnings()"
+                                        style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                    <button id="monthly-clear-filter" onclick="resetMonthlyFilter()" class="btn-sm"
+                                        style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                                </div>
+                            </div>
+                            <div id="monthly-stats" class="stats-list">
+                                <!-- Monthly stats injected here -->
+                            </div>
+                        </div>
+
+                        <div class="stats-group">
+                            <div class="stats-header"
+                                style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                <h4 style="margin:0; border:none; padding:0;">Product Breakdown</h4>
+                                <div class="month-filter-group" style="display:flex; align-items:center; gap:5px;">
+                                    <input type="month" id="product-month-picker" onchange="renderEarnings()"
+                                        style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                    <button id="product-clear-filter" onclick="resetProductFilter()" class="btn-sm"
+                                        style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                                </div>
+                            </div>
+                            <div id="product-stats" class="stats-list">
+                                <!-- Product stats injected here -->
+                            </div>
+                        </div>
+
+                        <div class="stats-group">
+                            <div class="stats-header"
+                                style="display:flex; justify-content:space-between; align-items:center; border-bottom: 1px solid var(--border); padding-bottom: 8px; margin-bottom: 12px;">
+                                <h4 style="margin:0; border:none; padding:0;">Product Days Breakdown</h4>
+                                <div class="month-filter-group" style="display:flex; align-items:center; gap:5px;">
+                                    <input type="month" id="product-days-month-picker" onchange="renderEarnings()"
+                                        style="padding: 4px; border: 1px solid var(--border); border-radius: 6px; font-family: inherit;">
+                                    <button id="product-days-clear-filter" onclick="resetProductDaysFilter()"
+                                        class="btn-sm"
+                                        style="display:none; padding: 2px 8px; font-size: 1.2rem; line-height: 1;">↺</button>
+                                </div>
+                            </div>
+                            <div id="product-days-stats" class="stats-list">
+                                <!-- Product days stats injected here -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Image Modal -->
+    <div id="image-modal" class="modal hidden">
+        <span class="close-modal">&times;</span>
+        <img class="modal-content" id="modal-img">
+        <div id="modal-caption"></div>
+    </div>
+
+    <!-- PDF Generation Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.31/jspdf.plugin.autotable.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
